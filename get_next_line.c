@@ -6,7 +6,15 @@
 /*   By: omatyko <omatyko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:12:27 by omatyko           #+#    #+#             */
-/*   Updated: 2024/12/06 01:12:32 by omatyko          ###   ########.fr       */
+/*   Updated: 2024/12/06 01:34:15 by omatyko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
+
+char *get_next_line(int fd)
+{
+	char buffer[128];
+
+	return;
+}
