@@ -2,7 +2,6 @@
 #include "get_next_line.h"
 #include "stdio.h"
 
-
 int main()
 {
 	int fd;
@@ -14,6 +13,8 @@ int main()
         return 1;
     }
 	str = get_next_line(fd);
+	if (str)
+		printf("%s", str);
 	close(fd);
-	return 0;
+	return (0);
 }

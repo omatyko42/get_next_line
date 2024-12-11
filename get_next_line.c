@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omatyko <omatyko@student.42.fr>            +#+  +:+       +#+        */
+/*   By: omatyko <omatyko@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:12:27 by omatyko           #+#    #+#             */
-/*   Updated: 2024/12/06 01:34:15 by omatyko          ###   ########.fr       */
+/*   Updated: 2024/12/11 16:50:23 by omatyko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 char *get_next_line(int fd)
 {
-	char buffer[128];
+	static char buffer[BUFFER_SIZE+1];
+	int bytes_read;
+	
+	bytes_read = 0;
+	bytes_read = read(fd,buffer, BUFFER_SIZE);	
+	if (bytes_read < 0)
+		return (NULL);
 
-	return;
+	return buffer;
 }
