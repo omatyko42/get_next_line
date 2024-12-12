@@ -6,7 +6,7 @@
 /*   By: omatyko <omatyko@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:14:04 by omatyko           #+#    #+#             */
-/*   Updated: 2024/12/11 16:42:59 by omatyko          ###   ########.fr       */
+/*   Updated: 2024/12/12 12:58:26 by omatyko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 3
+# define BUFFER_SIZE 5
 #endif
 
 char *get_next_line(int fd);

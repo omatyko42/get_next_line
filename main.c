@@ -15,6 +15,9 @@ int main()
 	str = get_next_line(fd);
 	if (str)
 		printf("%s", str);
+	str = get_next_line(fd);
+	if (str)
+		printf("%s", str);
 	close(fd);
 	return (0);
 }

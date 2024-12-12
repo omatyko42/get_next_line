@@ -3,11 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omatyko <omatyko@student.42.fr>            +#+  +:+       +#+        */
+/*   By: omatyko <omatyko@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:13:05 by omatyko           #+#    #+#             */
-/*   Updated: 2024/12/06 01:26:42 by omatyko          ###   ########.fr       */
+/*   Updated: 2024/12/12 12:58:33 by omatyko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
