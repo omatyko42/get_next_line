@@ -6,7 +6,7 @@
 /*   By: omatyko <omatyko@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:13:05 by omatyko           #+#    #+#             */
-/*   Updated: 2024/12/13 18:04:58 by omatyko          ###   ########.fr       */
+/*   Updated: 2024/12/13 16:05:00 by omatyko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,9 @@ char	*ft_calloc(size_t count, size_t size)
 	char	*ptr;
     size_t n;
 	
-    if (size != 0 && count > ((size_t)-1) / size)
-        return (NULL);
     n = count * size;
 	ptr = (char*)malloc(n);
-	if (!ptr)
-        return (NULL);
-    else
+	if (ptr)
     {
 		while (n--)
             ptr[n] = 0;
@@ -41,7 +37,7 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t i;
 	size_t	len1;
