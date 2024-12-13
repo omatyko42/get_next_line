@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line copy.c                               :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omatyko <omatyko@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:12:27 by omatyko           #+#    #+#             */
-/*   Updated: 2024/12/13 00:30:36 by omatyko          ###   ########.fr       */
+/*   Updated: 2024/12/13 11:36:44 by omatyko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*p = (unsigned char *)s;
+	unsigned char	*p;
+	
+	*p = (unsigned char *)s;
 	while (n--)
 		*p++ = 0;
 }
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*ptr = malloc(count * size);
+	void	*ptr;
+	
+	*ptr = malloc(count * size);
 	if (ptr)
 		ft_bzero(ptr, count * size);
 	return (ptr);
@@ -33,7 +37,9 @@ void	*ft_calloc(size_t count, size_t size)
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	len = 0;
+	size_t	len;
+	
+	len = 0;
 	while (s && s[len])
 		len++;
 	return (len);
@@ -41,38 +47,68 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len1 = ft_strlen(s1), len2 = ft_strlen(s2);
-	char	*str = malloc(len1 + len2 + 1);
+	size_t i;
+	size_t	len1;
+	char	*str;
+	
+	len1 = ft_strlen(s1), len2 = ft_strlen(s2);
+	*str = malloc(len1 + len2 + 1);
 	if (!str)
 		return (NULL);
-	for (size_t i = 0; i < len1; i++)
+	i = 0;
+	while(i < len1)
+	{
 		str[i] = s1[i];
-	for (size_t i = 0; i < len2; i++)
+		i++;
+	}
+	i = 0;
+	while (i < len2)
+	{
 		str[len1 + i] = s2[i];
+		i++;
+	}
 	str[len1 + len2] = '\0';
 	return (str);
 }
 
 int	ft_strichr(const char *s, int c)
 {
+	int i;
+	
 	if (!s)
 		return (-1);
-	for (int i = 0; s[i]; i++)
+	i = 0;
+	while(s[i])
+	{
 		if (s[i] == (char)c)
 			return (i);
+		i++;
+	}
 	return (c == '\0' ? ft_strlen(s) : -1);
 }
 
 char	*extract_line(char **storage, int newline_index)
 {
-	char	*line = ft_calloc(newline_index + 2, 1);
-	char	*new_storage = ft_calloc(ft_strlen(*storage) - newline_index, 1);
+	char	*line;
+	char	*new_storage;
+	int i;
+	
+	*line = ft_calloc(newline_index + 2, 1);
+	*new_storage = ft_calloc(ft_strlen(*storage) - newline_index, 1);
 	if (!line || !new_storage)
 		return (free(line), free(new_storage), NULL);
-	for (int i = 0; i <= newline_index; i++)
+	i = 0;
+	while(i <= newline_index)
+	{
 		line[i] = (*storage)[i];
-	for (size_t i = 0; (*storage)[newline_index + 1 + i]; i++)
+		i++;
+	}
+	i = 0;
+	while ((*storage)[newline_index + 1 + i])
+	{
 		new_storage[i] = (*storage)[newline_index + 1 + i];
+		i++;
+	}
 	free(*storage);
 	*storage = new_storage;
 	return (line);
