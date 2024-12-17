@@ -17,7 +17,8 @@ char	*get_next_line_bonus(int fd)
 	static char	*storage_buff[1024];
 	char		buffer[BUFFER_SIZE + 1];
 	ssize_t		bytes_read;
-	char *temp;
+	char		*temp;
+	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -32,10 +33,11 @@ char	*get_next_line_bonus(int fd)
 		storage_buff[fd] = temp;
 	}
 	if (ft_strichr(storage_buff[fd], '\n') >= 0)
-		return (cut_line(&storage_buff[fd], ft_strichr(storage_buff[fd], '\n')));
+		return (cut_line(&storage_buff[fd], ft_strichr(storage_buff[fd],
+					'\n')));
 	else
 		return (NULL);
-	char *line = storage_buff[fd];
+	line = storage_buff[fd];
 	storage_buff[fd] = NULL;
 	return (line);
 }
