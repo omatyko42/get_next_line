@@ -6,7 +6,7 @@
 /*   By: omatyko <omatyko@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:12:27 by omatyko           #+#    #+#             */
-/*   Updated: 2024/12/17 12:18:56 by omatyko          ###   ########.fr       */
+/*   Updated: 2024/12/17 15:06:26 by omatyko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*read_fd_to_buffer(int fd, char *storage_buff)
 
 char	*get_next_line(int fd)
 {
-	static char	*storage_buff = NULL;
+	static char	*storage_buff = {NULL};
 	char		*temp;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
